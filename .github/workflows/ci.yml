@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: docker build . -t your-app-image:latest
+
+    - name: Run tests
+      run: docker run --rm your-app-image:latest npm test  # For Mocha
+      # run: docker run --rm your-app-image:latest pytest   # For Pytest
+
+    - name: Log in to Docker Hub
+      if: success()
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Push Docker image
+      if: success()
+      run: docker push your-app-image:latest
