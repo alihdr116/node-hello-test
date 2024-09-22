@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --loader esm"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
