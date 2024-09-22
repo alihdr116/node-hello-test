@@ -17,10 +17,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Docker image
-        run: docker build . -t your-dockerhub-username/your-app-image:latest  # Tag with Docker Hub username
+        run: docker build . -t iamalihdr116/your-app-image:latest  
 
       - name: Run tests
-        run: docker run --rm your-dockerhub-username/your-app-image:latest npm test  # Use the same tag
+        run: docker run --rm iamalihdr116/your-app-image:latest npm test 
 
       - name: Log in to Docker Hub
         if: success()
