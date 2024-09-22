@@ -20,8 +20,7 @@ jobs:
       run: docker build . -t your-app-image:latest
 
     - name: Run tests
-      run: docker run --rm your-app-image:latest npm test  # For Mocha
-      # run: docker run --rm your-app-image:latest pytest   # For Pytest
+      run: docker run --rm your-app-image:latest npm test  
 
     - name: Log in to Docker Hub
       if: success()
