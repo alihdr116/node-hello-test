@@ -1,4 +1,4 @@
-FROM node:16  # Ensure you're using a compatible version
+FROM node:16
 
 WORKDIR /app
 
