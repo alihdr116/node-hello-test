@@ -31,4 +31,4 @@ jobs:
 
       - name: Push Docker image
         if: success()
-        run: docker push your-dockerhub-username/your-app-image:latest  # Use the same tag
+        run: docker push iamalihdr116/your-app-image:latest 
